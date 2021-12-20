@@ -6,7 +6,9 @@ import (
 	"github.com/SvenHamers/terraform-provider-apollostudio/internal/client"
 	"github.com/SvenHamers/terraform-provider-apollostudio/internal/services/apikey"
 	"github.com/SvenHamers/terraform-provider-apollostudio/internal/services/graph"
+	"github.com/SvenHamers/terraform-provider-apollostudio/internal/services/invitation"
 	"github.com/SvenHamers/terraform-provider-apollostudio/internal/services/organization"
+	"github.com/SvenHamers/terraform-provider-apollostudio/internal/services/user"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -28,6 +30,8 @@ func AppolloStudioProvider() *schema.Provider {
 			"apollostudio_graph":        graph.Resource(),
 			"apollostudio_apikey":       apikey.Resource(),
 			"apollostudio_organization": organization.Resource(),
+			"apollostudio_user":         user.Resource(),
+			"apollostudio_invitation":   invitation.Resource(),
 		},
 		DataSourcesMap:       map[string]*schema.Resource{},
 		ConfigureContextFunc: ProviderConfigure,
