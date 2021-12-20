@@ -26,7 +26,7 @@ description: |-
 
 ### Read-Only
 
-- **token** (String, Sensitive)
+- **graph_apikey** (String, Sensitive)
 - **id** (String) The ID of this resource.
 
 

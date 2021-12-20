@@ -34,7 +34,7 @@ func Resource() *schema.Resource {
 				Required: true,
 				ForceNew: true,
 			},
-			"token": &schema.Schema{
+			"graph_apikey": &schema.Schema{
 				Type:      schema.TypeString,
 				Computed:  true,
 				Sensitive: true,
@@ -82,7 +82,7 @@ func resourceCreate(ctx context.Context, data *schema.ResourceData, meta interfa
 	}
 
 	data.SetId(result.Service.NewKey.Id)
-	data.Set("token", result.Service.NewKey.Token)
+	data.Set("graph_apikey", result.Service.NewKey.Token)
 
 	return diags
 }

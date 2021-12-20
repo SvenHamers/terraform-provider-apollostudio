@@ -17,7 +17,7 @@ description: |-
 
 ### Required
 
-- **api_key** (String)
+- **personal_apikey** (String)
 
 ### Optional
 

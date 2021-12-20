@@ -16,7 +16,7 @@ import (
 func AppolloStudioProvider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"api_key": &schema.Schema{
+			"personal_apikey": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -43,7 +43,7 @@ func ProviderConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	var diags diag.Diagnostics
 
 	Appollo := &client.Client{
-		ApiKey:            d.Get("api_key").(string),
+		ApiKey:            d.Get("personal_apikey").(string),
 		EnterPriseEnabled: d.Get("enterprise_enabled").(bool),
 	}
 
