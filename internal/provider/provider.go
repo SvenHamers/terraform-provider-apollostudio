@@ -25,9 +25,9 @@ func AppolloStudioProvider() *schema.Provider {
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
-			"appollostudio_graph":        graph.Resource(),
-			"appollostudio_apikey":       apikey.Resource(),
-			"appollostudio_organization": organization.Resource(),
+			"apollostudio_graph":        graph.Resource(),
+			"apollostudio_apikey":       apikey.Resource(),
+			"apollostudio_organization": organization.Resource(),
 		},
 		DataSourcesMap:       map[string]*schema.Resource{},
 		ConfigureContextFunc: ProviderConfigure,
