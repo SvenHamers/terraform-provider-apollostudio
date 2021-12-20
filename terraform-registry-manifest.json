@@ -1,5 +1,6 @@
 {
     "version": 1,
-    "metadata": {},
+    "metadata": {
+        "protocol_versions": ["5.0"]
+    }
 }
-  
