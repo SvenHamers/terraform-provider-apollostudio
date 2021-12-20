@@ -18,7 +18,6 @@ description: |-
 ### Required
 
 - **api_key** (String)
-- **organisation** (String)
 
 ### Optional
 
