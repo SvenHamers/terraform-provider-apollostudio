@@ -8,7 +8,6 @@ import (
 
 type Client struct {
 	ApiKey            string
-	Organisation      string
 	EnterPriseEnabled bool
 	GraphClient       *graphql.Client
 }

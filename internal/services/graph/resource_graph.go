@@ -30,6 +30,11 @@ func Resource() *schema.Resource {
 				Required: true,
 				ForceNew: true,
 			},
+			"organization_id": &schema.Schema{
+				Type:     schema.TypeString,
+				Required: true,
+				ForceNew: true,
+			},
 			"is_developer": &schema.Schema{
 				Type:     schema.TypeBool,
 				Default:  false,
@@ -57,6 +62,7 @@ func resourceCreate(ctx context.Context, data *schema.ResourceData, meta interfa
 	var diags diag.Diagnostics
 
 	name := data.Get("name").(string)
+	orgId := data.Get("organization_id").(string)
 
 	id := name + helpers.RandomNumberString(6)
 
@@ -73,7 +79,7 @@ func resourceCreate(ctx context.Context, data *schema.ResourceData, meta interfa
 	if appollo.EnterPriseEnabled {
 		query = `
 		mutation Service {
-			newService(accountId: "` + appollo.Organisation + `", id:  "` + id + `", name: "` + name + `", title: "` + name + `", hiddenFromUninvitedNonAdminAccountMembers: ` + adminOnly + `) {
+			newService(accountId: "` + orgId + `", id:  "` + id + `", name: "` + name + `", title: "` + name + `", hiddenFromUninvitedNonAdminAccountMembers: ` + adminOnly + `) {
 				id
 				name
 				title
@@ -83,7 +89,7 @@ func resourceCreate(ctx context.Context, data *schema.ResourceData, meta interfa
 	} else {
 		query = `
 		mutation Service {
-			newService(accountId: "` + appollo.Organisation + `", id:  "` + id + `", name: "` + name + `", title: "` + name + `") {
+			newService(accountId: "` + orgId + `", id:  "` + id + `", name: "` + name + `", title: "` + name + `") {
 				id
 				name
 				title
